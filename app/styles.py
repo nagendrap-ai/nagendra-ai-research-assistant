@@ -34,40 +34,35 @@ footer {
 /* SIDEBAR */
 /* ================================================= */
 
-section[data-testid="stSidebar"] {
-    background: #f8fafc;
-    border-right: 1px solid #e5e7eb;
-}
+section[data-testid="stSidebar"] .stButton button {
+    width: 100%;
+    min-height: 36px;
+    height: 36px;
 
-/* Reduce sidebar internal padding */
+    padding: 5px 10px;
 
-section[data-testid="stSidebar"] > div:first-child {
-    padding-top: 1.2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
+    border-radius: 9px;
 
-/* Sidebar headings */
+    border: 1px solid #d1d5db;
 
-section[data-testid="stSidebar"] h1 {
-    color: #111827;
-    font-size: 22px;
-    margin-bottom: 8px;
-}
+    background: #ffffff;
 
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3 {
     color: #374151;
-    font-size: 17px;
-    margin-top: 8px;
-    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.2s;
 }
 
-/* Sidebar horizontal lines */
+section[data-testid="stSidebar"] .stButton button:hover {
+    border-color: #6366f1;
 
-section[data-testid="stSidebar"] hr {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    background: #eef2ff;
+
+    color: #4338ca;
+
+    transform: none;
 }
 
 
@@ -203,12 +198,12 @@ section[data-testid="stSidebar"] .stButton button[kind="secondary"] {
 .main-title {
     font-size: 46px;
     font-weight: 800;
-    color: #111827;
+    color: #ffffff;
     margin-bottom: 0px;
 }
 
 .sub-title {
-    color: #6b7280;
+    color: #cbd5e1;
     font-size: 18px;
     margin-top: -8px;
     margin-bottom: 25px;
