@@ -1,11 +1,7 @@
-from langchain_chroma import Chroma
-
 from app.rag.embeddings import get_embeddings
 
-# Persistent vector store (legacy)
-_vector_store = None
 
-# Session vector store (uploaded PDF)
+# Session vector store
 _uploaded_vector_store = None
 
 
@@ -31,37 +27,27 @@ def clear_uploaded_vector_store():
 
     _uploaded_vector_store = None
 
+    print("🗑️ Uploaded vector store cleared.")
+
 
 def get_vector_store():
     """
-    Returns uploaded vector store
-    if available.
+    Returns the uploaded PDF vector store.
 
-    Otherwise returns persistent vector_db.
+    Returns None when no PDF has been uploaded.
     """
 
-    global _vector_store
+    if _uploaded_vector_store is None:
 
-    # Highest priority
-    if _uploaded_vector_store is not None:
+        print("ℹ️ No uploaded PDF vector store available.")
 
-        return _uploaded_vector_store
+        return None
 
-    # Legacy support
-    if _vector_store is None:
-
-        _vector_store = Chroma(
-            persist_directory="vector_db",
-            embedding_function=get_embeddings(),
-        )
-
-        print("✅ Persistent Vector Store loaded.")
-
-    return _vector_store
+    return _uploaded_vector_store
 
 
 def reset_vector_store():
 
-    global _vector_store
+    global _uploaded_vector_store
 
-    _vector_store = None
+    _uploaded_vector_store = None
